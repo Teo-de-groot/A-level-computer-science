@@ -19,7 +19,7 @@ if today.month < months:
 else:
     if months == today.month:
         days = int(input("What day where you born "))
-        if days > today.day:
+        if days < today.day:
             year2 = today.year+1
             time_till_birthday = datetime.date(year = year2, month=months, day=days)
         else:
@@ -28,5 +28,8 @@ else:
         days = int(input("What day where you born "))
         year2 = today.year+1
         time_till_birthday = datetime.date(year = year2, month=months, day=days)
-birthday = time_till_birthday - todays
-print(birthday)
+if today.month == months and today.day == days:
+    print("Happy birthday!!")
+else:
+    birthday = time_till_birthday - todays
+    print(birthday)
