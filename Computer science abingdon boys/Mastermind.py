@@ -72,7 +72,7 @@ while restart == "yes":
     difficulty =difficulty.lower()
     while difficulty not in current_difficulties:
         if difficulty not in current_difficulties or not guess:
-         print(f"Difficulty choice is not valid, valid choices are: {", ".join(current_difficulties)}")
+         print(f"Difficulty choice is not valid, valid choices are: {current_difficulties}")
          difficulty=input("what difficulty? ")
         difficulty =difficulty.lower()
     if difficulty == "easy":
@@ -134,9 +134,10 @@ while restart == "yes":
         while correct!=True:
             for i in range (0,6):
                 guess=input("colour guess? ")
-                while not is_valid_colour(guess, colour_easy):
+                while not is_valid_colour(guess, colour_hard):
                     guess=input("colour guess? ")
                 guess=guess.lower()
+                Attempt.append(guess)
                 if Answer[i]==Attempt[i]:
                     win_condition = win_condition+1
                 else:
