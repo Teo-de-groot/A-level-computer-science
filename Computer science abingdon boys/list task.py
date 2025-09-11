@@ -10,12 +10,17 @@ length = len(name_list)
 print("The last names are",name_list[-7:])
 
 numb=[]
-for i in range(5):
+repeats = int(input("How many numbers would you like to Enter? "))
+for i in range(repeats):
     temp = int(input("Enter a number: "))
     numb.append(temp)
-print(min(numb))
-print(max(numb))
-print(sum(numb))
+print("\n"* 3)
+print("--- Results ---")
+print("\n")
+print("The numbers you entered are:", numb)
+print("The Smallest number is: ",min(numb))
+print("The Largest number is: ",max(numb))
+print("The sum of all the numbers is: ",sum(numb))
 mean = sum(numb) / len(numb)
 print(mean)
     
