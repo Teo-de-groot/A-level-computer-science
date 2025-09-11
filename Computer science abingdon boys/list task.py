@@ -7,8 +7,7 @@ print(name_list)
 third = name_list[2]
 print("The third name is: ", third)
 length = len(name_list)
-for i in range (1,8):
-    print(name_list[-i])
+print("The last names are",name_list[-7:])
 
 numb=[]
 for i in range(5):
@@ -17,9 +16,7 @@ for i in range(5):
 print(min(numb))
 print(max(numb))
 print(sum(numb))
-mean = sum(numb)
-mean1= len(numb)
-mean = mean / mean1
+mean = sum(numb) / len(numb)
 print(mean)
     
     
