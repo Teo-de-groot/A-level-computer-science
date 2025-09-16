@@ -15,6 +15,7 @@ def Add_task():
         
 
 def menu(list):
+    """menu for inputs and add to other """
     while True:
         option = input(""" ----Options----
                    1. Add a task
@@ -35,17 +36,17 @@ def menu(list):
         option = int(option)
         if option >5 or option < 1:
             print("Invalid option please enter a number 1-4")
-        elif option =="1":
+        elif option ==1:
                 Tasks = Add_task()
                 return Tasks
-        elif option =="2":
+        elif option ==2:
             print(list)
-        elif option =="3":
+        elif option ==3:
             if Tasks:
                 print(Tasks[0])
             else:
                 print("no current Tasks")
-        elif option == "4":
+        elif option == 4:
             if Tasks:
                 del Tasks[0]
             else:
