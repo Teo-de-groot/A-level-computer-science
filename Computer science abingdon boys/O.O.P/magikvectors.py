@@ -17,6 +17,8 @@ class Vector2D:
         return math.degrees(math.atan(self.x/self.y))
     def __rmul__(self, num):
          return Vector2D(num*self.x,num*self.y)
+    def __mul__(self, scalar):
+        return Vector2D(scalar*self.x,scalar*self.y)
 
 
 def testvec():
