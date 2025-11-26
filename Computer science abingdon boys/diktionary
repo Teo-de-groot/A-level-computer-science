@@ -7,11 +7,10 @@ dickens = dickens.replace('.', '')
 dickens = dickens.lower()               # Convert to lowercase
 word_list = dickens.split()              # Create a list of words. By default split at every ' ' character.
 
-print(word_list)
+
 word_frequency = {}
 for word in word_list:
     word_frequency[word] = word_frequency.get(word, 0)+1
-print(word_frequency)
 ords = sorted(word_frequency , key=word_frequency.get, reverse=True)
 for word in ords[:5:]:
     print(word, "appeared", word_frequency[word], "times")

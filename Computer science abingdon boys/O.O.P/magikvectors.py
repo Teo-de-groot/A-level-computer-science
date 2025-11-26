@@ -19,6 +19,9 @@ class Vector2D:
          return Vector2D(num*self.x,num*self.y)
     def __mul__(self, scalar):
         return Vector2D(scalar*self.x,scalar*self.y)
+    def __invert__(self):
+        return Vector2D(self.y,self.x)
+    
 
 
 def testvec():
@@ -40,4 +43,5 @@ class VectorND:
         self.dimensions = len(self.arguments)
     def lendimension(self):
         return self.dimensions
+    
     

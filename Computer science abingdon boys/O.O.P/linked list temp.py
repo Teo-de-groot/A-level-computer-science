@@ -44,7 +44,7 @@ class LinkedList:
     
     def __str__(self):
         """ Defines what should be displayed when the user prints a linked list object. """
-        return self.data
+        return "A Linked List"
 
 if __name__ == "__main__":
     my_stack = LinkedList()
