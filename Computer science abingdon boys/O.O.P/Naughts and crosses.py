@@ -11,7 +11,15 @@ class Board:
         print("---------------")
         print(" | ".join(self.boardcheck[6:9]))
         print()
-    
+    def checkdraw(self, win):
+        c=0
+        for i in range(0,9):
+            posibilites = ["X","O"]
+            if self.data[i] in posibilites:
+                c+=1
+            if c ==9 and win ==False:
+                return True   
+        return False
     def display(self):
         """ Shows the current board with any changed markers e.g X or O"""
         print(" | ".join(self.data[0:3]))
@@ -100,6 +108,10 @@ if play == "1":
                 print("Please enter in format {row},{col}")
         winner =1
         win = board.checkwin()
+        draw = board.checkdraw(win)
+        if draw == True:
+            print("Draw no possible moves left")
+            break
         board.display()
         if win == False:
             coord_check = False
@@ -109,6 +121,10 @@ if play == "1":
                 coord_check = board.set_cell(x,y,"O")
             winner =2
             win = board.checkwin()
+            draw = board.checkdraw(win)
+            if draw == True:
+                print("Draw no possible moves left")
+                break
     print(f"player{winner} won the game")
 if play == "2":
     player2 =input("who is player 2: ")
@@ -132,6 +148,10 @@ if play == "2":
                 print("Please enter in format {row},{col}")
         winner =1
         win = board.checkwin()
+        draw = board.checkdraw(win)
+        if draw == True:
+            print("Draw no possible moves left")
+            break
         if win == False:
             print(f"{player2}'s turn")
             board.display() 
@@ -152,4 +172,9 @@ if play == "2":
                     print("Please enter in format {row},{col}")
             winner =2
             win = board.checkwin()
-    print(f"player{winner} won the game")
+            draw = board.checkdraw(win)
+            if draw == True:
+                print("Draw no possible moves left")
+                break
+    if draw == False:
+        print(f"player{winner} won the game")
