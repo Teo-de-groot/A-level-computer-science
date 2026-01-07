@@ -106,7 +106,7 @@ if play == "1":
                     print("enter number 1-3 only")
             else:
                 print("Please enter in format {row},{col}")
-        winner =1
+        winner =player1
         win = board.checkwin()
         draw = board.checkdraw(win)
         if draw == True:
@@ -119,7 +119,7 @@ if play == "1":
                 x =random.randint(1,3)
                 y = random.randint(1,3)
                 coord_check = board.set_cell(x,y,"O")
-            winner =2
+            winner ="AI"
             win = board.checkwin()
             draw = board.checkdraw(win)
             if draw == True:
@@ -129,6 +129,7 @@ if play == "1":
 if play == "2":
     player2 =input("who is player 2: ")
     while win == False: 
+        board.checkcoord()
         print(f"{player1}'s turn")
         board.display() 
         coord_check = False
@@ -146,7 +147,7 @@ if play == "2":
                     print("enter number 1-3 only")
             else:
                 print("Please enter in format {row},{col}")
-        winner =1
+        winner =player1
         win = board.checkwin()
         draw = board.checkdraw(win)
         if draw == True:
@@ -170,11 +171,11 @@ if play == "2":
                         print("enter number 1-3 only")
                 else:
                     print("Please enter in format {row},{col}")
-            winner =2
+            winner =player2
             win = board.checkwin()
             draw = board.checkdraw(win)
             if draw == True:
                 print("Draw no possible moves left")
                 break
     if draw == False:
-        print(f"player{winner} won the game")
+        print(f"player: {winner} won the game")

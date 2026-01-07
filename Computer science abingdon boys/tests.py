@@ -27,7 +27,7 @@ def tower_mod(lst, mod):
     if len(lst) == 1:
         return lst[0] % mod
 
-    ph = phi(mod)
+    ph = euler_phi(mod)
     exp = tower_mod(lst[1:], ph) # This will now call tower_mod([0, 0], ph)
 
     effective_exp = exp
