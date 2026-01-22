@@ -6,7 +6,7 @@ def create_adjacency_matrix(vertices, edges):
         matrix[i][i] = 0
     for u, v, w in edges:
         matrix[u][v] = w
-        matrix[v][u] = w  # For undirected graph
+        matrix[v][u] = w 
     return matrix   
 
 def dijkstra(adj_matrix, start):
@@ -34,17 +34,16 @@ def dijkstra(adj_matrix, start):
     return distances
 
 def test():
-    vertices = 5
+    vertices = 6
     edges = [
-        (0, 1, 10),
-        (0, 2, 3),
+        (0, 5, 8),
+        (0, 1, 2),
+        (0, 2, 5),
+        (0, 3, 3),
         (1, 2, 1),
-        (1, 3, 2),
-        (2, 1, 4),
-        (2, 3, 8),
-        (2, 4, 2),
-        (3, 4, 7),
-        (4, 3, 9)
+        (2, 5, 4),
+        (3, 4, 1),
+        (4, 5, 5)
     ]
     adj_matrix = create_adjacency_matrix(vertices, edges)
     start_vertex = 0
