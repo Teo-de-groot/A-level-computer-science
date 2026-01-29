@@ -114,7 +114,7 @@ def read_file():
     if not filename:
         return jsonify({"status": "error", "message": "No filename provided"}), 400
     
-    response = requests.get(PHP_ENDPOINT, params={"filename": filename})
+    response = req.get(PHP_ENDPOINT, params={"filename": filename})
     
     if response.status_code == 200:
         return response.text, 200, {'Content-Type': 'text/plain'}
