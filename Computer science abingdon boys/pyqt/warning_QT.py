@@ -11,7 +11,7 @@ class MainWindow(QMainWindow):
 
         layout = QVBoxLayout()
 
-        # Create a button
+        # Create another button
         ok_btn = QPushButton("Ok")
         ok_btn.clicked.connect(self.ok_button_click)
         layout.addWidget(ok_btn)
@@ -36,7 +36,7 @@ class MainWindow(QMainWindow):
         save_btn.clicked.connect(self.save_btn_click)
         layout.addWidget(save_btn)
 
-        # Create the windows central widget
+        # Create another button
         widget = QWidget()
         widget.setLayout(layout)
         self.setCentralWidget(widget)

@@ -2,7 +2,7 @@
 #print(binary(2))
 
 def intput(x):
-    """interger input with error handling"""
+
     y=0
     while y !=1:
         try:

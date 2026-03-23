@@ -83,47 +83,17 @@ def CnD():
         )
 PHP_ENDPOINT = 'http://localhost/text.php'  
 
-@app.route('/upload', methods=['POST'])
-def upload_file():
-    """
-    Receives a file from the frontend and forwards it to the PHP backend.
-    """
-    if 'file' not in req.files:
-        return jsonify({"status": "error", "message": "No file part"}), 400
-    
-    file = req.files['file']
-    if file.filename == '':
-        return jsonify({"status": "error", "message": "No selected file"}), 400
-    
-    # Forward file to PHP using requests
-    files = {'file': (file.filename, file.stream, file.content_type)}
-    response = req.post(PHP_ENDPOINT, files=files)
-    
-    try:
-        return jsonify(response.json()), response.status_code
-    except:
-        return response.text, response.status_code
-
-@app.route('/read', methods=['GET'])
-def read_file():
-    """
-    Receives a filename from the frontend, forwards it to the PHP backend, 
-    and returns the content.
-    """
-    filename = req.args.get('filename')
-    if not filename:
-        return jsonify({"status": "error", "message": "No filename provided"}), 400
-    
-    response = req.get(PHP_ENDPOINT, params={"filename": filename})
-    
-    if response.status_code == 200:
-        return response.text, 200, {'Content-Type': 'text/plain'}
-    else:
-        try:
-            return jsonify(response.json()), response.status_code
-        except:
-            return response.text, response.status_code
-
+@app.route('/comments', methods=['GET', 'POST'])
+def comments():
+    if req.method == 'POST':
+        comment = req.form.get('comment')
+        with open('comments.txt', 'a') as f:
+            f.write(comment + '\n')
+    comments = []
+    if os.path.exists('comments.txt'):
+        with open('comments.txt', 'r') as f:
+            comments = f.readlines()
+    return rt('text.php', comments=comments)
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=5000, debug=True)
