@@ -1,0 +1,51 @@
+/* Tooltip container */
+.task-row { 
+    position: relative; 
+    cursor: pointer; 
+    padding: 10px;
+}
+
+/* The hidden description box */
+.description-popup {
+    visibility: hidden;
+    width: 250px;
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-align: left;
+    border-radius: 8px;
+    padding: 12px;
+    position: absolute;
+    z-index: 10;
+    bottom: 125%; 
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    transform: translateY(10px);
+}
+
+/* Triangle pointer for the tooltip */
+.description-popup::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #2c3e50 transparent transparent transparent;
+}
+
+/* Show on hover */
+.task-row:hover .description-popup {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Completed task styling */
+.completed-text {
+    text-decoration: line-through;
+    color: #888;
+}

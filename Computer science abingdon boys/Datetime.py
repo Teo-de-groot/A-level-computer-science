@@ -33,3 +33,4 @@ if today.month == months and today.day == days:
 else:
     birthday = time_till_birthday - todays
     print(birthday)
+    

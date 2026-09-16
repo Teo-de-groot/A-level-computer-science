@@ -1,0 +1,2 @@
+USE Task_List;
+ALTER TABLE tasks ADD COLUMN task_name VARCHAR(255) AFTER Task_Id;
