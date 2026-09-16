@@ -42,15 +42,17 @@ def menu(list):
         elif option ==2:
             print(list)
         elif option ==3:
-            if Tasks:
-                print(Tasks[0])
+            length = len(list)
+            if length >0:
+                print("next task is: ",list[0])
             else:
                 print("no current Tasks")
         elif option == 4:
-            if Tasks:
-                del Tasks[0]
+            length = len(list)
+            if length > 0:
+                del list[0]
             else:
-                print("no current tasks")
+                print("no current Tasks")
         else:
             quit()
 while continues == True:

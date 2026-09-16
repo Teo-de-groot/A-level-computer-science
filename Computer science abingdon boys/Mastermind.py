@@ -1,7 +1,7 @@
 import random
 import csv
 #green box for easy mode
-#print("\U0001F7E9")
+#print(e)
 #red box for easy mode
 #print("\U0001F7E5")
 
